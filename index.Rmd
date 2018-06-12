@@ -21,8 +21,8 @@ df <- data.frame(
 )
 
 myIcons <- iconList(
-  meet = makeIcon("Time-Meeting-icon.png", 32, 32),
-  hotel = makeIcon("Hotel-icon.png", 32, 32)
+  meet = makeIcon(iconUrl = "https://www.openstreetmap.org/assets/osm_logo-f13314123f336d32682fddc79f2a5f0dedc894c637decede98a41587340dad19.svg", 32, 32),
+  hotel = makeIcon(iconUrl = "https://duckduckgo.com/assets/logo_homepage.normal.v107.svg", 32, 32)
 )
 
 map <-leaflet(data = df) %>% addTiles()
