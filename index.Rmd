@@ -1,0 +1,31 @@
+---
+title: "Leaflet Sample"
+author: "Leo"
+date: "12 June 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## US - DPRK Summit
+```{r}
+library(leaflet)
+
+df <- data.frame(
+  name = c("Capella Hotel Singapore", "Shangri-La Hotel Singapore", "The St. Regis Singapore"),
+  lon = c(103.824440, 103.826734, 103.826031),
+  lat = c(1.249712, 1.311547, 1.305854),
+  type = factor(c("meet", "hotel", "hotel"))
+)
+
+myIcons <- iconList(
+  meet = makeIcon(iconUrl = "http://icons.iconarchive.com/icons/icons8/windows-8/32/Time-Meeting-icon.png", 32, 32),
+  hotel = makeIcon(iconUrl = "http://icons.iconarchive.com/icons/iconsmind/outline/32/Hotel-icon.png", 32, 32)
+)
+
+map <-leaflet(data = df) %>% addTiles()
+
+addMarkers(map, ~lon, ~lat, icon = ~myIcons[type], popup = ~name)
+```
